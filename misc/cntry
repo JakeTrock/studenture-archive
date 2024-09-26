@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+import json
+import uuid
+
+# Specify the path to your JSON file
+file_path = "cnt.json"
+
+print("INSERT IGNORE INTO t3turbo_tag (id, name, tag_type) VALUES ")
+
+# Open the JSON file
+with open(file_path) as file:
+    # Load the JSON data
+    data = json.load(file)
+
+    loc_set = set()
+
+    for element in data:
+        loc = element["name"]
+        loc_set.add(loc)
+
+    for loc in loc_set:
+        print('("' + str(uuid.uuid4()) + '", "' + loc + '", "location"),')
+    
+    country_set = set()
+
+    for element in data:
+        country = element["country"]
+        country_set.add(country)
+
+    for country in country_set:
+        print('("' + str(uuid.uuid4()) + '", "' + country + '", "location"),')
+        
+
+
+print(";")

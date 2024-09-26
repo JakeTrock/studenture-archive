@@ -1,0 +1,42 @@
+{
+  "name": "@acme/api",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@acme/auth": "workspace:^0.1.0",
+    "@acme/db": "workspace:^0.1.0",
+    "@trpc/client": "next",
+    "@trpc/server": "next",
+    "browser-geo-tz": "^0.0.7",
+    "leaflet": "^1.9.4",
+    "nearby-big-cities": "^1.0.0",
+    "react-leaflet": "^4.2.1",
+    "superjson": "2.2.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:^0.2.0",
+    "@acme/prettier-config": "workspace:^0.1.0",
+    "@acme/tsconfig": "workspace:^0.1.0",
+    "@types/leaflet": "^1.9.8",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@acme/eslint-config/base"
+    ]
+  },
+  "prettier": "@acme/prettier-config"
+}

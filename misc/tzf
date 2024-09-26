@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+import json
+import uuid
+
+# Specify the path to your JSON file
+file_path = "tz.json"
+
+print("INSERT IGNORE INTO t3turbo_tag (id, name, tag_type) VALUES ")
+
+# Open the JSON file
+with open(file_path) as file:
+    # Load the JSON data
+    data = json.load(file)
+
+    # Get the array with the key "arr"
+    arr = data["tzs"]
+
+    # Loop over the array and print each element
+    for element in arr:
+        print('("' + str(uuid.uuid4()) + '", "' + element + '", "timezone"),')
+
+print(";")
